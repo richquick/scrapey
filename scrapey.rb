@@ -61,11 +61,11 @@ end.parse!
 
 # Option handling
 if options[:url]
-  # scrape_page(options[:url])
-  # get_links("#{OUTPUT}/web.archive.org/web/20130126055416/http//jenniewalker.com/index.html").each do |link|
-  #   puts link
-  # end
+  scrape_page(options[:url])
+end
 
+# Tree (bit naff at present)
+if options[:tree]
   files = find_files("web.archive.org")
 
   all_links = get_all_links(files).get_all_sublinks options[:url]
@@ -73,5 +73,4 @@ if options[:url]
   all_links.each do |link|
     scrape_page link
   end
-
 end
